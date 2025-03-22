@@ -9,7 +9,7 @@ const corsOption = {
         }
     },
     credentials: true,
-    withCredentials: true,
+    // withCredentials: true,
     optionSuccessStatus: 200,
 }
 
