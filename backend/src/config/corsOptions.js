@@ -6,7 +6,7 @@ const corsOptions = {
         console.log('Incoming origin:', origin || 'No origin');
 
         // Allow requests with no origin (non-browser clients)
-        if (!origin) return callback(null, true);
+        // if (!origin) return callback(null, true);
 
         // Check against allowedOrigins with case-insensitive matching
         const normalizedOrigin = origin.toLowerCase();
