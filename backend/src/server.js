@@ -15,49 +15,50 @@ const stageEnv = process.env.NODE_ENV;
 
 
 // app.use(require('./middlewares/credentials')) 
+// 1. CORS First (before any other middleware)
 app.options('*', cors({
-    origin: '*',
-    methods: '*',
-    allowedHeaders: '*'
+    origin: true, // Use true instead of * for credentials
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(cors({
-    origin: '*',
-    methods: '*',
-    allowedHeaders: '*'
+    origin: [
+        'https://waitlist-netmifi.vercel.app',
+        'https://netmifi-waitlist.vercel.app'
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true // Only if using cookies/auth
 }));
-if (stageEnv === 'development') {
-    app.use(
-        helmet({
-            contentSecurityPolicy: {
-                directives: {
-                    defaultSrc: ["'self'", 'localhost:*'],
-                    imgSrc: ["'self'", 'localhost:*', 'https://example.com'],
-                    scriptSrc: ["'self'", 'https://trusted-scripts.com'],
-                },
-            },
-        })
-    );
-} else {
-    app.use(helmet({
-        contentSecurityPolicy: {
-            directives: {
-                defaultSrc: ["'self'"],
-                scriptSrc: ["'self'", "https://waitlist-netmifi.vercel.app"],
-                connectSrc: ["'self'", "https://netmifi-waitlist.vercel.app"]
-            }
-        },
-        crossOriginResourcePolicy: { policy: "cross-origin" }
-    })); // Use default settings in production
-}
 
-app.use(limiter);
-app.use(express.json())
-app.use(express.urlencoded({
-    extended: false
+// 2. Security Headers (modified for Vercel)
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            connectSrc: [
+                "'self'",
+                'https://waitlist-netmifi.vercel.app',
+                'https://netmifi-waitlist.vercel.app'
+            ],
+            imgSrc: ["'self'", 'data:'],
+            scriptSrc: ["'self'", "'unsafe-inline'"], // TEMPORARY FOR DEBUGGING
+            objectSrc: ["'none'"],
+            upgradeInsecureRequests: []
+        }
+    },
+    crossOriginResourcePolicy: { policy: "cross-origin" },
+    crossOriginEmbedderPolicy: false
 }));
+
+// 3. Other middleware AFTER CORS/security
+app.use(limiter);
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// 4. Routes
 app.use('/services', servicesRoutes);
 app.use('/waitlist', waitlistRoutes);
 

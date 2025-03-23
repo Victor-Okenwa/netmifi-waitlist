@@ -7,7 +7,7 @@ const BASE_URL = import.meta.env.VITE_API_BASE_ROUTE; // **REF .env file**
 export default axios.create({
     baseURL: BASE_URL,
     headers: { "Content-Type": "application/json" },
-    // withCredentials: true,
+    withCredentials: true,
 });
 
 // export const axiosPrivate = axios.create({
