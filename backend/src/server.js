@@ -13,6 +13,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const stageEnv = process.env.NODE_ENV;
 
+// app.use(require('./middlewares/credentials')) 
+app.use(cors(corsOptions));
 if (stageEnv === 'development') {
     app.use(
         helmet({
@@ -26,10 +28,17 @@ if (stageEnv === 'development') {
         })
     );
 } else {
-    app.use(helmet()); // Use default settings in production
+    app.use(helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                scriptSrc: ["'self'", "https://waitlist-netmifi.vercel.app"],
+                connectSrc: ["'self'", "https://netmifi-waitlist.vercel.app"]
+            }
+        },
+        crossOriginResourcePolicy: { policy: "cross-origin" }
+    })); // Use default settings in production
 }
-// app.use(require('./middlewares/credentials')) 
-app.use(cors());
 // app.options('*', cors(corsOptions));
 
 app.use(limiter);
