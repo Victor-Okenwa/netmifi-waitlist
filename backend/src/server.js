@@ -29,7 +29,7 @@ app.use(cors({
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true // Only if using cookies/auth
+    // credentials: true // Only if using cookies/auth
 }));
 
 // 2. Security Headers (modified for Vercel)
