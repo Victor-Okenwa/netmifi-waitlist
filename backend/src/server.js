@@ -15,30 +15,30 @@ const stageEnv = process.env.NODE_ENV;
 
 // app.use(require('./middlewares/credentials')) 
 app.use(cors(corsOptions));
-if (stageEnv === 'development') {
-    app.use(
-        helmet({
-            contentSecurityPolicy: {
-                directives: {
-                    defaultSrc: ["'self'", 'localhost:*'],
-                    imgSrc: ["'self'", 'localhost:*', 'https://example.com'],
-                    scriptSrc: ["'self'", 'https://trusted-scripts.com'],
-                },
-            },
-        })
-    );
-} else {
-    app.use(helmet({
-        contentSecurityPolicy: {
-            directives: {
-                defaultSrc: ["'self'"],
-                scriptSrc: ["'self'", "https://waitlist-netmifi.vercel.app"],
-                connectSrc: ["'self'", "https://netmifi-waitlist.vercel.app"]
-            }
-        },
-        crossOriginResourcePolicy: { policy: "cross-origin" }
-    })); // Use default settings in production
-}
+// if (stageEnv === 'development') {
+//     app.use(
+//         helmet({
+//             contentSecurityPolicy: {
+//                 directives: {
+//                     defaultSrc: ["'self'", 'localhost:*'],
+//                     imgSrc: ["'self'", 'localhost:*', 'https://example.com'],
+//                     scriptSrc: ["'self'", 'https://trusted-scripts.com'],
+//                 },
+//             },
+//         })
+//     );
+// } else {
+//     app.use(helmet({
+//         contentSecurityPolicy: {
+//             directives: {
+//                 defaultSrc: ["'self'"],
+//                 scriptSrc: ["'self'", "https://waitlist-netmifi.vercel.app"],
+//                 connectSrc: ["'self'", "https://netmifi-waitlist.vercel.app"]
+//             }
+//         },
+//         crossOriginResourcePolicy: { policy: "cross-origin" }
+//     })); // Use default settings in production
+// }
 // app.options('*', cors(corsOptions));
 
 app.use(limiter);
