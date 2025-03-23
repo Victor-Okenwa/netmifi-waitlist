@@ -5,15 +5,9 @@
       { "src": "src/server.js", "use": "@vercel/node" },
       { "src": "src/**/*", "use": "@vercel/static" }
     ],
-
-    "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "https://waitlist-netmifi.vercel.app" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,PUT,DELETE,OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
-      ]
-    }
-  ]
+    "routes": [
+      { "src": "/services/(.*)", "dest": "/src/server.js" },
+      { "src": "/waitlist/(.*)", "dest": "/src/server.js" },
+      { "src": "/(.*)", "dest": "/src/$1" }
+    ]
   }
