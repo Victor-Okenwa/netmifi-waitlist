@@ -1,10 +1,12 @@
 require('dotenv/config');
 
-const whiteList = [
+const allowedOrigins = [
+    'https://netmifi-waitlist.vercel.app',
+    'https://waitlist-netmifi.vercel.app',
+    'https://*.vercel.app', // Allow all Vercel preview deployments
     'http://localhost:8000',
     'http://127.0.0.1:8000',
-    'https://waitlist-netmifi.vercel.app',
-    process.env.FRONTEND_URL.toString()
+    process.env.FRONTEND_URL
 ];
 
-module.exports = whiteList;
+module.exports = allowedOrigins;

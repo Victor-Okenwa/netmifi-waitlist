@@ -9,5 +9,13 @@
       { "src": "/services/(.*)", "dest": "/src/server.js" },
       { "src": "/waitlist/(.*)", "dest": "/src/server.js" },
       { "src": "/(.*)", "dest": "/src/$1" }
-    ]
+    ],
+    "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
   }

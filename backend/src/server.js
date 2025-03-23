@@ -30,6 +30,7 @@ if (stageEnv === 'development') {
     app.use(helmet()); // Use default settings in production
 }
 // app.use(require('./middlewares/credentials')) 
+app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
 
 app.use(limiter);
