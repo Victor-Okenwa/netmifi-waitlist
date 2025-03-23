@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 const stageEnv = process.env.NODE_ENV;
 
 // app.use(require('./middlewares/credentials')) 
-app.use(cors(corsOptions));
+app.use(cors());
 // if (stageEnv === 'development') {
 //     app.use(
 //         helmet({
