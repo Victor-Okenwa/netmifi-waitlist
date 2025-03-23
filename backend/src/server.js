@@ -14,9 +14,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const stageEnv = process.env.NODE_ENV;
 
-app.use(require('./middlewares/credentials'))
-app.use(cors(corsOptions));
-
 if (stageEnv === 'development') {
     app.use(
         helmet({
@@ -32,15 +29,16 @@ if (stageEnv === 'development') {
 } else {
     app.use(helmet()); // Use default settings in production
 }
+// app.use(require('./middlewares/credentials')) 
+app.use(cors(corsOptions));
 
+app.use(limiter);
 app.use(express.json())
 app.use(express.urlencoded({
     extended: false
 }));
 app.use(cookieParser());
 
-
-app.use(limiter);
 app.use('/services', servicesRoutes);
 app.use('/waitlist', waitlistRoutes);
 
