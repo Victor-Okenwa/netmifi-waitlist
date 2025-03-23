@@ -140,6 +140,7 @@ const Home = () => {
           </div>
         </div>
         <div className="flex flex-col items-start lg:items-center gap-4 z-10 p-5 lg:px-0">
+        <h1>A test</h1>
           <h1 className="text-2xl md:text-3xl lg:text-[2.05rem] font-bold lg:text-center lg:max-w-[700px]">
             THE ULTIMATE LAUNCHPAD FOR ADDICTIVE LEARNING AND SOCIALIZING!
           </h1>
