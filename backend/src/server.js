@@ -17,7 +17,11 @@ const stageEnv = process.env.NODE_ENV;
 // app.use(require('./middlewares/credentials')) 
 app.options('*', cors(corsOptions));
 
-app.use(cors(corsOptions));
+app.use(cors({
+    origin: '*',
+    methods: '*',
+    allowedHeaders: '*'
+}));
 if (stageEnv === 'development') {
     app.use(
         helmet({
