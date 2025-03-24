@@ -8,7 +8,7 @@ export default axios.create({
     baseURL: BASE_URL,
     headers: {
         "Content-Type": "application/json",
-        "X-Requested-With": "XMLHttpRequest"
+        // "X-Requested-With": "XMLHttpRequest"
     },
     // withCredentials: true,
 });
