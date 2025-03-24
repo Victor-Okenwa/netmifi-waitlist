@@ -10,7 +10,7 @@ export default axios.create({
         "Content-Type": "application/json",
         "X-Requested-With": "XMLHttpRequest"
     },
-    withCredentials: true,
+    // withCredentials: true,
 });
 
 // export const axiosPrivate = axios.create({
