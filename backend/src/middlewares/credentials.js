@@ -5,6 +5,7 @@ const credentials = (req, res, next) => {
     // if (allowedOrigins.includes(origin)) {
     res.header('ACCESS-CONTROL-ALLOW-CREDENTIALS', true);
     res.header('X-POWERED-BY', 'Netmifi Bridge');
+    res.sendStatus(200);
     // }
     next();
 }
