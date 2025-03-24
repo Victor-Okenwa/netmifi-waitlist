@@ -78,7 +78,7 @@ app.use('/services', servicesRoutes);
 app.use('/waitlist', waitlistRoutes);
 
 connectToDb()
-// .then(() => app.listen(PORT, () => console.log(`App running on http://localhost:${PORT}`)))
-// .catch(console.dir);
+    .then(() => app.listen(PORT, () => console.log(`App running on http://localhost:${PORT}`)))
+    .catch(console.dir);
 
-module.exports = app
+// module.exports = app
