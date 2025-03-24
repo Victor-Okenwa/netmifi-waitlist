@@ -9,52 +9,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import mutationErrorHandler from "@/api/handlers/mutationErrorHandler";
-import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { useWaitlist } from "@/api/hooks/waitlist/useWaitlist";
 import Loader from "@/components/Loader";
 
 const Home = () => {
   const mutation = useWaitlist();
-
-  //   useMutation({
-  //   mutationFn: async (formData) => {
-  //     const response = await fetch("http://localhost:3000/services/waitlist", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(Object.fromEntries(formData.entries())),
-  //     });
-
-  //     // if (!response.ok) {
-  //     //   throw new Error("Failed to submit form");
-  //     // }
-
-  //     return await response.json();
-  //   },
-  //   onSuccess: (data) => {
-  //     if (data.state?.isSuccess) {
-  //       setIsModalOpen(true);
-  //     } else if (data.state?.isBlocked) {
-  //       toast.error(data.message, {
-  //         className:
-  //           "bg-white ring-1 font-[500] ring-red-700 text-red-700 shadow-lg",
-  //       });
-  //     } else {
-  //       toast.error(data.message || "An unexpected error occurred", {
-  //         className: "bg-red-700 text-white shadow-lg",
-  //       });
-  //     }
-  //   },
-  //   onError: (error) => {
-  //     console.error("Mutation error:", error);
-  //     toast.error(error.message || "Submission failed, please try again.", {
-  //       className: "bg-red-700 text-white shadow-lg",
-  //     });
-  //   },
-  // });
-
   const formSchema = updateWaitlistSchema();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -84,12 +44,12 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-default w-auto lg:w-dvw h-dvh relative">
+    <div className="bg-default w-auto md:w-dvw h-dvh relative">
       <div className="absolute flex z-0 items-center justify-center min-h-dvh bg-white/90 top-0 right-0 left-0 bottom-0"></div>
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 backdrop-blur-sm z-50">
-          <div className="bg-white rounded-xl p-6 w-[70%] lg:w-[25%] space-y-5">
+          <div className="bg-white rounded-xl p-6 w-[70%] md:w-[25%] space-y-5">
             {/* Modal Header with Close Icon */}
             <div className="flex justify-end">
               <button
@@ -129,8 +89,8 @@ const Home = () => {
         </div>
       )}
       <NavWaitlist />
-      <div className="mt-3 lg:mt-56 flex justify-center lg:space-x-10">
-        <div className="lg:flex flex-col hidden justify-between py-10 text-white h-[60vh]">
+      <div className="mt-3 md:mt-56 flex justify-center md:space-x-10">
+        <div className="md:flex flex-col hidden justify-between py-10 text-white h-[60vh]">
           <div className="bg-[#1DA1F2] px-2 text-center rounded-lg text-lg -skew-x-[9.62deg] skew-y-[9.62deg]">
             Adventurous
           </div>
@@ -139,11 +99,11 @@ const Home = () => {
             Community-driven
           </div>
         </div>
-        <div className="flex flex-col items-start lg:items-center gap-4 z-10 p-5 lg:px-0">
-          <h1 className="text-2xl md:text-3xl lg:text-[2.05rem] font-bold lg:text-center lg:max-w-[700px]">
+        <div className="flex flex-col items-start md:items-center gap-4 z-10 p-5 md:px-0">
+          <h1 className="text-2xl md:text-3xl md:text-[2.05rem] font-bold md:text-center md:max-w-[700px]">
             THE ULTIMATE LAUNCHPAD FOR ADDICTIVE LEARNING AND SOCIALIZING!
           </h1>
-          <p className="lg:max-w-[650px] lg:text-center text-[#1A0F28] text-medium text-sm lg:text-lg">
+          <p className="md:max-w-[650px] md:text-center text-[#1A0F28] text-medium text-sm md:text-lg">
             Get exclusive access to our groundbreaking All-in-One e-learning and
             social commerce platform for creators! Join our launch list to be
             among the first to try it out and shape the future of edtech.
@@ -191,7 +151,7 @@ const Home = () => {
             </button>
           </form>
         </div>
-        <div className="lg:flex flex-col hidden justify-between py-10 text-white h-[60vh]">
+        <div className="md:flex flex-col hidden justify-between py-10 text-white h-[60vh]">
           <div className="bg-[#84C50E] px-4 text-center rounded-lg text-lg skew-x-[7.96deg] -skew-y-[7.96deg]">
             Growth
           </div>

@@ -26,7 +26,7 @@ const NavWaitlist = () => {
 
   return (
     <>
-      <div className="z-50 lg:hidden w-full lg:px-[105px] lg:ring-[0.3px] sticky top-0 space-y-4">
+      <div className="z-50 md:hidden w-full md:px-[105px] md:ring-[0.3px] sticky top-0 space-y-4">
         <div className="bg-white justify-between flex border-b-[#00000088] border-b-[0.5px] py-4 px-5">
           <div className="w-[133px] h-[39px]">
             <img src={Logo} alt="Logo netmifi" />
@@ -60,7 +60,7 @@ const NavWaitlist = () => {
                 fill={activeLink === "home" ? "#9E0000" : "#00000055"}
                 size={20}
               />
-              <NavLink href="/home">Home</NavLink>
+              <NavLink to="/home">Home</NavLink>
             </div>
             <div
               className={`flex items-center gap-2 py-3 mx-3 px-5 ${
@@ -71,7 +71,7 @@ const NavWaitlist = () => {
               onClick={() => setActiveLink("community")}
             >
               <FaPeopleGroup size={20} />
-              <NavLink href="/community">Community</NavLink>
+              <NavLink to="/community">Community</NavLink>
             </div>
           </div>
         )}
@@ -80,7 +80,7 @@ const NavWaitlist = () => {
       {/* Mobile Navigation */}
 
       {/* Desktop Navigation */}
-      <div className="justify-between items-center z-50 bg-white/65 backdrop-blur-lg hidden lg:flex lg:h-[80px] lg:w-[833px] lg:px-[105px] lg:py-[30px] rounded-3xl ring-[0.3px] fixed top-[43px] left-[49px]">
+      <div className="justify-between items-center z-50 bg-white/65 backdrop-blur-lg hidden md:flex md:h-[80px] md:w-[833px] md:px-[105px] md:py-[30px] rounded-3xl ring-[0.3px] fixed top-[43px] left-[49px]">
         <div className="w-[133px] h-[39px]">
           <img src={Logo} alt="Logo netmifi" />
         </div>

@@ -8,13 +8,13 @@
     "routes": [
       { "src": "/services/(.*)", "dest": "/src/server.js",            
        "methods": ["GET", "POST", "OPTIONS"], 
-       "headers": {"Access-Control-Allow-Origin": "*"}
+       "headers": {"Access-Control-Allow-Origin": "https://waitlist-netmifi.vercel.app"}
     },
       { "src": "/waitlist/(.*)", "dest": "/src/server.js",     
       "methods": ["GET", "POST", "OPTIONS"], 
-      "headers": {"Access-Control-Allow-Origin": "*"} },
+      "headers": {"Access-Control-Allow-Origin": "https://waitlist-netmifi.vercel.app"} },
       { "src": "/(.*)", "dest": "/src/$1",        
       "methods": ["GET", "POST", "OPTIONS"], 
-      "headers": {"Access-Control-Allow-Origin": "*"} }
+      "headers": {"Access-Control-Allow-Origin": "https://waitlist-netmifi.vercel.app"} }
     ]
   }
