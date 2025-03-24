@@ -14,13 +14,13 @@ const PORT = process.env.PORT || 3000;
 const stageEnv = process.env.NODE_ENV;
 
 
-// app.use(require('./middlewares/credentials')) 
+app.use(require('./middlewares/credentials'))
 // 1. CORS First (before any other middleware)
-app.use(function (request, response, next) {
-    response.header("Access-Control-Allow-Origin", "*");
-    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+// app.use(function (request, response, next) {
+//     response.header("Access-Control-Allow-Origin", "*");
+//     response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 app.options('*', cors({
     origin: true, // Use true instead of * for credentials
@@ -35,9 +35,10 @@ app.use(cors({
         'https://netmifi-waitlist.vercel.app'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'Authorization',],
     optionsSuccessStatus: 200,
-    credentials: true // Only if using cookies/auth
+    credentials: true, // Only if using cookies/auth
+
 }));
 
 // 2. Security Headers (modified for Vercel)
