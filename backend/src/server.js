@@ -30,6 +30,7 @@ app.use(cors({
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
+    optionsSuccessStatus: 200
     // credentials: true // Only if using cookies/auth
 }));
 
@@ -60,6 +61,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // 4. Routes
+app.options('/waitlist', (req, res) => {
+    res.header('Access-Control-Allow-Origin', 'https://waitlist-netmifi.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'POST,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.sendStatus(200);
+});
 app.use('/services', servicesRoutes);
 app.use('/waitlist', waitlistRoutes);
 
