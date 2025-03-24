@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 const stageEnv = process.env.NODE_ENV;
 
 
-app.use(require('./middlewares/credentials'))
+// app.use(require('./middlewares/credentials'))
 // 1. CORS First (before any other middleware)
 // app.use(function (request, response, next) {
 //     response.header("Access-Control-Allow-Origin", "*");
