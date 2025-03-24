@@ -16,6 +16,12 @@ const stageEnv = process.env.NODE_ENV;
 
 // app.use(require('./middlewares/credentials')) 
 // 1. CORS First (before any other middleware)
+app.use(function (request, response, next) {
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.options('*', cors({
     origin: true, // Use true instead of * for credentials
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
