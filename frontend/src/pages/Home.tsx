@@ -48,7 +48,7 @@ const Home = () => {
       <div className="absolute flex z-0 items-center justify-center min-h-dvh bg-white/90 top-0 right-0 left-0 bottom-0"></div>
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 backdrop-blur-sm z-50">
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 backdrop-blur-sm z-[70]">
           <div className="bg-white rounded-xl p-6 w-[70%] md:w-[25%] space-y-5">
             {/* Modal Header with Close Icon */}
             <div className="flex justify-end">
