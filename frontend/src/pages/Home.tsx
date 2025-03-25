@@ -28,7 +28,7 @@ const Home = () => {
     try {
       const { data } = await mutation.mutateAsync({ ...values });
       toast.success("Thank you for enlisting into our wait list", data);
-      navigate("/community");
+      setIsModalOpen(true);
     } catch (error) {
       console.error("Mutation error:", error);
       mutationErrorHandler(mutation, error);
@@ -88,6 +88,7 @@ const Home = () => {
           </div>
         </div>
       )}
+
       <NavWaitlist />
       <div className="mt-3 md:mt-56 flex justify-center md:space-x-10">
         <div className="md:flex flex-col hidden justify-between py-10 text-white h-[60vh]">

@@ -21,7 +21,7 @@ const transporter = nodemailer.createTransport({
 // For the template type use the exempt the template but use the template name in snake case e.g verificationCodeTemplate as verification_code
 function emailBody(title, templateType, other) {
     return `
-      <!DOCTYPE html>
+          <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -66,23 +66,23 @@ function emailBody(title, templateType, other) {
 
                         <!-- Footer -->
                         <tr>
-                            <td style="padding: 30px; background-color: hsl(0, 100%, 31%); color: #ffffff;">
+                            <td style="padding: 30px;">
                                 <table role="presentation" style="width: 100%; border-collapse: collapse;">
                                     <tr>
                                         <td style="padding: 0; width: 50%;" align="left">
-                                            <p style="margin: 0; font-size: 14px; line-height: 20px;">&copy; <span id="year">${currentYear}</span> All rights reserved, Netmifi<br/><a href="http://www.example.com" style="color: #ffffff; fiil: #ffffff; text-decoration: underline;">www.netmifi.com</a></p>
+                                            <p style="margin: 0; font-size: 14px; line-height: 20px;">&copy; <span id="year"></span> All rights reserved, Netmifi<br/><br/><a href="https://netmifi-web.web.app" style="display: flex; align-items: center; font-size: 25px; color: #000; text-decoration: none;"><img src="https://i.ibb.co/4wW1vbbw/netmifi-logo.jpg" alt="netmifi-logo" border="0" height="40px">Netmifi</a></p>
                                         </td>
                                         <td style="padding: 0; width: 50%;" align="right">
                                             <table role="presentation" style="border-collapse: collapse;">
                                                 <tr>
                                                     <td style="">
-                                                        <a href="https://chat.whatsapp.com/IYZvFhKf6YQ44Jamwm8NBi" style="color: #ffffff; font-size: 24px;"><i class="fa-brands fa-whatsapp"></i></a>
+                                                        <a href="https://chat.whatsapp.com/IYZvFhKf6YQ44Jamwm8NBi" style="font-size: 18px; color: #000"><i class="fa-brands fa-whatsapp"></i></a>
                                                     </td>
                                                                                                        <td style="padding: 0 10px;">
-                                                        <a href="https://www.linkedin.com/company/getnetmifi/" style="color: #ffffff; font-size: 24px;"><i class="fa-brands fa-linkedin"></i></a>
+                                                        <a href="https://www.linkedin.com/company/getnetmifi/" style="color: #ffffff; font-size: 18px; color: #000"><i class="fa-brands fa-linkedin"></i></a>
                                                     </td>
                                                                                                 <td>
-                                                        <a href="https://x.com/GetNetmifi_hq?t=Ikt-aAbTKvfX0FIS6ecE1A&s=09" style="color: #ffffff; font-size: 24px;"><i class="fa-brands fa-x-twitter"></i></a>
+                                                        <a href="https://x.com/GetNetmifi_hq?t=Ikt-aAbTKvfX0FIS6ecE1A&s=09" style="font-size: 18px; color: #000"><i class="fa-brands fa-x-twitter"></i></a>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -96,8 +96,7 @@ function emailBody(title, templateType, other) {
             </tr>
         </table>
     </body>
-    </html>
-`}
+    </html>`}
 
 async function sendEmail(to, templateType, other) {
     const subject = templateType === 'verification_code' ? emailSubjects.verification_code : templateType === 'waitlist_confirmation' ? emailSubjects.waitlist_confirmation : templateType === 'email_verified' ? emailSubjects.email_verified : templateType === 'instructor_accepted' ? emailSubjects.instructor_accepted : emailSubjects.registration_successful;
