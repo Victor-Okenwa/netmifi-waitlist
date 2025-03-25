@@ -1,8 +1,8 @@
 const emailSubjects = {
     verification_code: "Verification Code",
     email_verified: "Email Verification",
-    registration_successful: "Welcome To Netmifi",
-    waitlist_confirmation: "Netmifi Wait list",
+    registration_successful: "Welcome To Netmifi!",
+    waitlist_confirmation: "Welcome to Netmifi!",
     instructor_accepted: "Welcome To Netmifi Legion",
 }
 
@@ -25,16 +25,30 @@ function verificationCodeTemplate(code) {
         </tr>
 `}
 
-function waitlistConfirmationTemplate() {
+function waitlistConfirmationTemplate(name) {
     return `
-    <tr>
-        <td>
+            <td class=" font-family:'DM Sans', Arial">
             <h1 style="font-size: 24px; margin: 0 0 20px 0; color: hsl(0, 100%, 31%);">
                 Hello,</h1>
-            <p style="margin: 0 0 12px 0; line-height: 24px;">You has been enlisted into Netmifi, we would make sure you're first to know about our latest progress and updates.</p>
+            <p style="margin: 0 0 12px 0; line-height: 24px">
+            Dear ${name}, <br/><br/>
+                A big thank you for joining our waitlist! We're thrilled to have you on board. <br/><br/>
+                Welcome to Netmifi, the ultimate addictive e-learning and social commerce platform! Here's what you can expect when we launch:
+<br/>
+                - Learn from experts: Buy courses and learn from top instructors <br/>
+                - Monetize your knowledge: Publish and sell your own courses, ebooks, comics, and video content <br/>
+                - Collaborate with creators: Connect with like-minded individuals and grow your network <br/>
+                - Get certified: Earn certificates upon completing courses<br/>
+                - Launch your career: Get paired with internship opportunities in tech and media<br/>
+<br/><br/>
+                We're committed to creating a platform that's engaging, rewarding, and fun! Stay tuned for updates, and get ready to experience the future of e-learning. <br/>
 
-            <p style="margin: 0 0 12px 0; line-height: 24px;"></p>
-            <p style="margin: 0; line-height: 24px;">Thank you for choosing NETMIFI!</p>
+                Thank you again for joining us on this exciting journey!
+<br/><br/>
+                Best regards,<br/>
+                Onyekachi Nnaemena,<br/>
+                Co-founder & CEO, Netmifi
+            </p>
         </td>
     </tr>`;
 }

@@ -19,14 +19,14 @@ const waitlist = async (req, res) => {
 
         // Save new user to the waitlist
         const newUser = await Waitlist.create({ name, email });
-        
+
         // Send confirmation email
-         sendEmail(email, 'waitlist_confirmation') .then(() => {
+        sendEmail(email, 'waitlist_confirmation', name).then(() => {
             console.log('Email sent successfully')
         })
-        .catch((error) => {
-            console.error('Failed to send email:', error)
-        });
+            .catch((error) => {
+                console.error('Failed to send email:', error)
+            });
 
         res.status(201).json({
             message: 'Waitlist registration successful',
