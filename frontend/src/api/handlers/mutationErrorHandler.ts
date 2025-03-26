@@ -2,7 +2,7 @@
 
 import { toast } from "sonner";
 
-const mutationErrorHandler = (mutationFn: any, error?: any) => {
+const mutationErrorHandler = (error?: any) => {
     // console.log('error message', error.response.data.errors.details, error)
 
     if (error?.response?.data?.errors && error.response.data.errors.details.length > 0) {

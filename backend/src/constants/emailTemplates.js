@@ -28,8 +28,6 @@ function verificationCodeTemplate(code) {
 function waitlistConfirmationTemplate(name) {
     return `
             <td class=" font-family:'DM Sans', Arial">
-            <h1 style="font-size: 24px; margin: 0 0 20px 0; color: hsl(0, 100%, 31%);">
-                Hello,</h1>
             <p style="margin: 0 0 12px 0; line-height: 24px">
             Dear ${name}, <br/><br/>
                 A big thank you for joining our waitlist! We're thrilled to have you on board. <br/><br/>

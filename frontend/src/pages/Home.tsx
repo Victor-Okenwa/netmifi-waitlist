@@ -30,8 +30,7 @@ const Home = () => {
       toast.success("Thank you for enlisting into our wait list", data);
       setIsModalOpen(true);
     } catch (error) {
-      console.error("Mutation error:", error);
-      mutationErrorHandler(mutation, error);
+      mutationErrorHandler(error);
     }
   };
 
