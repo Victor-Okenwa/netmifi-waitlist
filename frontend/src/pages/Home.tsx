@@ -12,6 +12,7 @@ import mutationErrorHandler from "@/api/handlers/mutationErrorHandler";
 import { toast } from "sonner";
 import { useWaitlist } from "@/api/hooks/waitlist/useWaitlist";
 import Loader from "@/components/Loader";
+import { Button } from "@/components/ui/button";
 
 const Home = () => {
   const mutation = useWaitlist();
@@ -89,7 +90,7 @@ const Home = () => {
       )}
 
       <NavWaitlist />
-      <div className="mt-3 md:mt-56 flex justify-center md:space-x-10">
+      <div className="mt-3 md:mt-36 flex justify-center md:space-x-10">
         <div className="md:flex flex-col hidden justify-between py-10 text-white h-[60vh]">
           <div className="bg-[#1DA1F2] px-2 text-center rounded-lg text-lg -skew-x-[9.62deg] skew-y-[9.62deg]">
             Adventurous
@@ -142,13 +143,13 @@ const Home = () => {
                 placeholder="Example@gmail.com"
               />
             </div>
-            <button
-              className="px-5 w-full bg-[#9E0000] hover:bg-[#CF8080] text-white flex justify-center py-4 ring-[1px] ring-[#CF8080] rounded-xl"
+            <Button
+              className="px-5 w-full rounded-xl text-white"
               type="submit"
               disabled={mutation.isPending}
             >
               {mutation.isPending ? <Loader type="all" /> : "Join Wait list"}
-            </button>
+            </Button>
           </form>
         </div>
         <div className="md:flex flex-col hidden justify-between py-10 text-white h-[60vh]">

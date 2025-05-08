@@ -5,11 +5,11 @@ import NavWaitlist from "@/components/navbar/NavbarWaitlist";
 
 const Community = () => {
   return (
-    <div className="bg-default w-auto lg:w-dvw h-dvh relative ">
+    <div className="bg-default w-auto lg:w-dvw h-dvh relative overflow-x-hidden">
       <div className="absolute flex z-0 items-center justify-center min-h-dvh bg-white/90 top-0 right-0 left-0 bottom-0"></div>
       <NavWaitlist />
 
-      <div className="mt-3 lg:mt-56 flex justify-center lg:space-x-10">
+      <div className="mt-3 lg:mt-36 flex justify-center lg:space-x-10">
         <div className="lg:flex flex-col hidden justify-between py-10 text-white h-[60vh]">
           <div className="bg-[#1DA1F2] px-2 text-center rounded-lg text-lg -skew-x-[9.62deg] skew-y-[9.62deg]">
             Adventurous
