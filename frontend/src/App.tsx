@@ -21,6 +21,7 @@ const App = () => {
         toastOptions={{
           className: "shadow-lg ",
         }}
+        richColor
       />
     </Router>
   );

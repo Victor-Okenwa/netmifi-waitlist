@@ -5,7 +5,7 @@ import NavWaitlist from "@/components/navbar/NavbarWaitlist";
 
 const Community = () => {
   return (
-    <div className="bg-default w-auto lg:w-dvw h-dvh relative">
+    <div className="bg-default w-auto lg:w-dvw h-dvh relative ">
       <div className="absolute flex z-0 items-center justify-center min-h-dvh bg-white/90 top-0 right-0 left-0 bottom-0"></div>
       <NavWaitlist />
 

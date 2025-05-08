@@ -38,7 +38,7 @@ function emailBody(title, templateType, other) {
                             <!-- Header with Logo -->
                             <tr>
                                 <td align="center" style="padding: 40px 0 30px 0;">
-                            <a href="https://ibb.co/Jw7PmjrG"><img src="https://i.ibb.co/jPMFbk3Q/Photo-2025-03-25-09-11-57.jpg" alt="Photo-2025-03-25-09-11-57" border="0"></a>
+                                     <a href="https://ibb.co/Jw7PmjrG"><img src="https://ibb.co/0pcqyPXp" alt="Netmifi welcome card" border="0"></a>
                                 </td>
                             </tr>
                             <!-- Main Content -->
