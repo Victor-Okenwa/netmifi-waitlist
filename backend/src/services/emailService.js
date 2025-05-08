@@ -29,18 +29,14 @@ function emailBody(title, templateType, other) {
             <title>${title}</title>
         </head>
         
-        <body style="margin: 0; padding: 0; font-family: Roboto, verdana, sans-serif; background-color: #f4f4f4; color: black;">
+        <body style="margin: 0; padding: 0; font-family: Poppins, verdana, sans-serif; background-color: #f4f4f4; color: black;">
             <table role="presentation" style="width: 100%; border-collapse: collapse;">
                 <tr>
                     <td align="center" style="padding: 0;">
                         <table role="presentation"
                             style="width: 600px; border-collapse: collapse; background-color: #ffffff; margin: 0 auto;" >
                             <!-- Header with Logo -->
-                            <tr>
-                                <td align="center" style="padding: 40px 0 30px 0;">
-                                     <a href="https://ibb.co/Jw7PmjrG"><img src="https://ibb.co/0pcqyPXp" alt="Netmifi welcome card" border="0"></a>
-                                </td>
-                            </tr>
+                     
                             <!-- Main Content -->
                             
                             <tr>
