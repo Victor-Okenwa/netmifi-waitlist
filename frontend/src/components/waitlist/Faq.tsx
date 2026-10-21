@@ -37,9 +37,9 @@ const questions = [
   },
   {
     id: "campuses",
-    question: "Are the campus names partnerships?",
+    question: "Are the university and polytechnic marks partnerships?",
     answer:
-      "No. The South-East campus names are recognition of where many first learners study. They are not partnerships, and Netmifi has no official university deals.",
+      "No. The South-East university and polytechnic marks are recognition of where many first learners study. They are not partnerships, and Netmifi has no official deals with those institutions.",
   },
   {
     id: "later",
