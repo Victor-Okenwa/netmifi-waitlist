@@ -1,0 +1,12 @@
+node_modules
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+.vscode
+courses
+cover
+profile
+thumbnail
+env
+convert-imports
