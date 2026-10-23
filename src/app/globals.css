@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border font-dm-sans;
+    scrollbar-width: thin;
+  }
+
+  body {
+    @apply min-h-screen w-full bg-background text-foreground;
+  }
+
+  :root {
+    --background: 0 0% 97.3%;
+    --foreground: 222.2 84% 4.9%;
+
+    --red: 0, 100%, 31%;
+    --red-foreground: 0, 100%, 64%;
+
+    --low-red: 15, 100%, 93%;
+    --low-red-foreground: 15, 97%, 38%;
+
+    --blue: 223, 100%, 28%;
+    --blue-foreground: 223, 100%, 76%;
+
+    --high-contrast: 0, 0%, 12%;
+    --high-contrast-foreground: 0, 0%, 84%;
+
+    --low-contrast: 0, 0%, 19%;
+    --low-contrast-foreground: 0, 0%, 80%;
+
+    --transparent-black: 0, 0%, 0%, 0.718;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 99%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+}
+
+@layer components {
+  .max-container {
+    @apply mx-auto w-full;
+  }
+}
+
+@layer utilities {
+  .padding {
+    @apply px-4 py-8 md:px-8 md:py-14;
+  }
+
+  .padding-x {
+    @apply px-4 md:px-8;
+  }
+
+  .padding-y {
+    @apply py-8 md:py-14;
+  }
+}
