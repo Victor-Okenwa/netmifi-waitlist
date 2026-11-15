@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import {
   newsletterActivatedTemplate,
   waitlistConfirmationTemplate,
@@ -13,7 +13,11 @@ const emailSubjects: Record<EmailTemplate, string> = {
 
 const currentYear = new Date().getFullYear().toString();
 
-function emailBody(title: string, templateType: EmailTemplate, other?: string) {
+export function emailBody(
+  title: string,
+  templateType: EmailTemplate,
+  other?: string
+) {
   const inner =
     templateType === "waitlist_confirmation"
       ? waitlistConfirmationTemplate(other ?? "")
@@ -60,28 +64,44 @@ function emailBody(title: string, templateType: EmailTemplate, other?: string) {
     </html>`;
 }
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT ?? 587),
-  secure: process.env.SMTP_PORT === "465",
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error("RESEND_API_KEY environment variable is not set");
+  }
+  return new Resend(apiKey);
+}
+
+function getFromAddress() {
+  const fromEmail = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
+  const fromName = process.env.RESEND_FROM_NAME ?? "Netmifi";
+
+  if (fromEmail.includes("<")) {
+    return fromEmail;
+  }
+
+  return `${fromName} <${fromEmail}>`;
+}
 
 export async function sendEmail(
   to: string,
   templateType: EmailTemplate,
   other?: string
 ) {
+  const resend = getResendClient();
   const subject = emailSubjects[templateType];
-  const info = await transporter.sendMail({
-    from: process.env.SMTP_USER,
+
+  const { data, error } = await resend.emails.send({
+    from: getFromAddress(),
     to,
     subject,
     html: emailBody(subject, templateType, other),
   });
-  console.log("Message sent: %s", info.messageId);
-  return info;
+
+  if (error) {
+    throw new Error(`Resend error (${error.name}): ${error.message}`);
+  }
+
+  console.log("Message sent: %s", data?.id);
+  return data;
 }
